@@ -7,11 +7,43 @@
 
   <ion-content>
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
+
+
+        <ion-item color="lighter" *ngIf="global.menu_status" menuClose (click)="goto_my_account()"> 
+          <ion-icon color="dark" name="person" item-left></ion-icon>Account
+        </ion-item>
+
+        <ion-item color="lighter" *ngIf="global.menu_status && global.group_id=='2'" menuClose (click)="goto_new_customer()"> 
+          <ion-icon color="dark" name="contact" item-left></ion-icon>New Customer
+        </ion-item>
+
+        <ion-item color="lighter" *ngIf="global.menu_status && global.group_id=='2'" menuClose (click)="my_registrations()"> 
+          <ion-icon color="dark" name="list-box" item-left></ion-icon>Registered Customers
+        </ion-item>
+
+        <ion-item color="lighter" *ngIf="global.menu_status && global.group_id=='4'" menuClose (click)="goto_defaulters()"> 
+          <ion-icon color="dark" name="people" item-left></ion-icon>Defaulters
+        </ion-item>
+
+        <ion-item color="lighter" *ngIf="global.menu_status && global.group_id=='3'" menuClose (click)="goto_mytransfers()">
+          <ion-icon color="dark"  name="sync" item-left></ion-icon>My Transfers
+        </ion-item>
+        
+        <ion-item color="lighter" *ngIf="global.menu_status && global.group_id=='3'" menuClose (click)="goto_new_payment()">
+          <ion-icon  color="dark" name="card" item-left></ion-icon>
+          New Payment
+        </ion-item>
+
+        <ion-item color="lighter" *ngIf="global.menu_status" menuClose (click)="goto_logout()"> 
+            <ion-icon color="danger" name="power" item-left></ion-icon>Log Out
+          </ion-item>
+
+        <ion-item color="lighter"  menuClose (click)="goto_about_tra()">
+          <ion-icon color="dark"  name="information-circle" item-left></ion-icon>About TRA
+        </ion-item>
+
+      </ion-list>
+</ion-content>
 
 </ion-menu>
 

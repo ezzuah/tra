@@ -1,0 +1,21 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Regisration - Step 2</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <div align="center" *ngFor="let photo of photos; let id = index" >
+        <img [src]="photo" *ngIf="photo" />
+     </div>
+  
+  
+    <button ion-button icon-left full large outline color="primary" (click)="takePhoto()"> <ion-icon name="camera"></ion-icon>Take Group Photo</button>
+    <img *ngIf="photos==''"  class="group" src="assets/imgs/group_temp.png">
+     <button ion-button icon-left full large outline color="dark"> <ion-icon name="arrow-round-forward" (click)="skip()"></ion-icon>Skip</button>
+
+</ion-content>

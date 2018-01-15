@@ -1,0 +1,29 @@
+<ion-header >
+    <ion-navbar color="dark">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title></ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content>
+
+    <ion-list>
+        <!-- <ion-list-header>
+          Account
+        </ion-list-header> -->
+        <ion-item text-wrap >Fullname <p>{{first_name}} {{last_name}}</p></ion-item>
+        <ion-item>Phone Number <p>{{phone_number}}</p></ion-item>
+        <ion-item>Username <p>{{username}}</p></ion-item>
+        <ion-item>Region<p>{{region}}</p></ion-item>
+        <ion-item>District<p>{{district}}</p></ion-item>        
+        <ion-item>Password <p>Tap Here to Change your Password</p> </ion-item>
+        
+      </ion-list>
+
+      <button  icon-left color="primary" ion-button full outline (click)="download()" large>
+          <ion-icon  name="people"></ion-icon>  Download Customers
+        </button>
+
+</ion-content>

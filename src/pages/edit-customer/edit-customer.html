@@ -1,0 +1,103 @@
+<ion-header>
+    <ion-navbar color="dark">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Customer Edit</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <div align="center">
+      <img style="border-radius:50%" src="http://51.140.49.106:8012/tra/customer_photos/{{customer_photo}}" width='120'>
+    </div>
+      <ion-list>  
+  
+          <ion-item>
+              <ion-label floating>Firstname</ion-label>
+              <ion-input type="text"  [(ngModel)]="first_name" ></ion-input>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label floating>Lastname</ion-label>
+              <ion-input type="text"  [(ngModel)]="last_name" ></ion-input>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label floating>Othernames</ion-label>
+              <ion-input type="text"   [(ngModel)]="other_names" ></ion-input>
+            </ion-item>
+            <br>
+  
+            
+              <ion-item>
+                <ion-label>Gender</ion-label>
+                <ion-select [(ngModel)]="gender">
+                  <ion-option value="Male">Male</ion-option>
+                  <ion-option value="Female">Female</ion-option>
+                </ion-select>
+              </ion-item>
+              <br>
+
+              <ion-item>
+                  <ion-label>Region</ion-label>
+                  <ion-select (ionChange)="get_districts()" [(ngModel)]="region"  >
+                      <ion-option [value]="item.id" *ngFor="let item of region_list">{{item.region}}</ion-option>
+                  </ion-select>
+                </ion-item>
+  
+                <br>
+  
+                <ion-item>
+                    <ion-label>District</ion-label>
+                    <ion-select  [(ngModel)]="district">
+                    <ion-option [value]="item.id"  *ngFor="let item of districts_list">{{item.district}}</ion-option>
+                    </ion-select>
+                  </ion-item>
+              <br>
+  
+            
+              <ion-item>
+                <ion-label>Mode of Business</ion-label>
+                <ion-select [(ngModel)]="mode_biz">
+                  <ion-option value="hawker">Stationed</ion-option>
+                  <ion-option value="mobile">Mobile</ion-option>
+                </ion-select>
+              </ion-item>
+  
+                  <br>
+  
+                  <ion-item>
+                      <ion-label>ID Type</ion-label>
+                      <ion-select  [(ngModel)]="id_type">
+                      <ion-option [value]="item.id"  *ngFor="let item of id_list">{{item.type}}</ion-option>
+  
+                      </ion-select>
+                    </ion-item>
+  
+                <ion-item>
+                  <ion-label floating>ID Number</ion-label>
+                  <ion-input type="text"  [(ngModel)]="id_number"  ></ion-input>
+                </ion-item>
+  
+                <ion-item>
+                  <ion-label floating>TIN</ion-label>
+                  <ion-input type="text"  [(ngModel)]="tin" readonly></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label floating>Primary Item Sale</ion-label>
+                  <ion-input type="text"  [(ngModel)]="primary_sale"  ></ion-input>
+                </ion-item>
+              
+              
+              </ion-list>
+  
+
+              <div align="center">
+                  <button icon-left ion-button full outline color="primary" (click)="register()" large >
+                      <ion-icon name="contact"></ion-icon>
+                    Save Changes
+                  </button>
+                </div>
+  </ion-content>
+  

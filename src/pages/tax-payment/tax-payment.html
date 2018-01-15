@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>New Tax Payment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <form [formGroup]="payment_form">
+
+    <ion-item>
+        <ion-label stacked>Tin</ion-label>
+        <ion-input type="text" formControlName="tin" [(ngModel)]="tin" ></ion-input>
+      </ion-item>
+  
+      <br>
+      <ion-item>
+          <ion-label>Months Duration</ion-label>
+          <ion-select formControlName="duration_number" [(ngModel)]="duration_number">
+            <ion-option value="1">1</ion-option>
+            <ion-option value="2">2</ion-option>
+            <ion-option value="3">3</ion-option>
+            <ion-option value="4">4</ion-option>
+            <ion-option value="5">5</ion-option>
+            <ion-option value="6"></ion-option>
+            <ion-option value="7">7</ion-option>
+            <ion-option value="8">8</ion-option>
+            <ion-option value="9">9</ion-option>
+            <ion-option value="10">10</ion-option>
+            <ion-option value="11">11</ion-option>
+            <ion-option value="12">12</ion-option>
+          </ion-select>
+        </ion-item>
+        <br>
+        <p align="center">
+            <button ion-button icon-left large full outline color="primary" [disabled]="!payment_form.valid" (click)="new_payment()">
+             
+              <ion-icon name="arrow-dropright"></ion-icon>
+              Pay Tax
+            </button>
+          </p>
+          </form>
+          
+</ion-content>

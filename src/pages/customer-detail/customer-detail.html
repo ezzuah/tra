@@ -1,0 +1,53 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <div *ngIf="co_photo==null"  align="center">
+        <img style="border-radius:50%;width:120px" src="http://51.140.49.106:8012/tra/customer_photos/{{customer_photo}}" width='120'>
+      </div>
+
+    <ion-slides *ngIf="co_photo!=null" pager="true" style="height:200px">
+        <ion-slide>
+            <div align="center">
+                <img style="border-radius:50%;width:120px" src="http://51.140.49.106:8012/tra/customer_photos/{{customer_photo}}" width='120'>
+              </div>
+        </ion-slide>
+        <ion-slide>
+            <div align="center">
+                <img style="border-radius:50%;width:120px" src="http://51.140.49.106:8012/tra/customer_photos/{{co_photo}}" width='120'>
+              </div>
+        </ion-slide>
+      </ion-slides>
+
+   
+
+      <button *ngIf="co_photo==null"  icon-left color="primary" ion-button full outline (click)="edit_group_photo()" large>
+          <ion-icon  name="people"></ion-icon>  Add Co-Workers Photo
+        </button>
+        <br>
+    <ion-list *ngFor="let item of user">
+        <ion-list-header>
+          Customer Detail
+        </ion-list-header>
+        <ion-item text-wrap >Fullname <p>{{item.first_name}} {{item.other_names}}  {{item.last_name}}</p></ion-item>
+        <ion-item>Gender <p>{{item.gender}}</p></ion-item>
+        <ion-item>Phone Number <p>{{item.phone_number}}</p></ion-item>
+        <ion-item >Mode of Business <p>{{item.mode_business}}</p></ion-item>
+        <ion-item>Primary Item Sale <p>{{item.primary_item_sale}}</p></ion-item>
+        <ion-item>ID Type <p>{{item.id_type}}</p> </ion-item>
+        <ion-item>ID Number <p>{{item.id_number}}</p></ion-item>
+        <ion-item>TIN <p>{{item.tin}}</p></ion-item>
+        <ion-item>Region<p>{{item.region}}</p></ion-item>
+        <ion-item>District <p>{{item.district}}</p></ion-item>
+        <ion-item>Latitude & Longitude<p>{{item.latitude}},{{item.longitude}}</p></ion-item>
+        <ion-item>Hawking Address<p>{{item.hawk_area_address}}</p></ion-item>
+        
+      </ion-list>
+    </ion-content>

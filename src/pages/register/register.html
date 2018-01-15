@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Registration - Step 1</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <form [formGroup]="regis_form">
+    <ion-list>  
+
+        <ion-item>
+            <ion-label floating>Firstname</ion-label>
+            <ion-input type="text" formControlName="first_name"  [(ngModel)]="first_name" ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Lastname</ion-label>
+            <ion-input type="text" formControlName="last_name"  [(ngModel)]="last_name" ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Othernames</ion-label>
+            <ion-input type="text" formControlName="other_names"  [(ngModel)]="other_names" ></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Phone Number</ion-label>
+              <ion-input type="tel" formControlName="phone_number"  [(ngModel)]="phone_number" ></ion-input>
+            </ion-item>
+            <br>
+
+          
+            <ion-item>
+              <ion-label>Gender</ion-label>
+              <ion-select formControlName="gender" [(ngModel)]="gender">
+                <ion-option value="Male">Male</ion-option>
+                <ion-option value="Female">Female</ion-option>
+              </ion-select>
+            </ion-item>
+            <br>
+          
+
+
+            <ion-item>
+                <ion-label>Region</ion-label>
+                <ion-select (ionChange)="get_districts()" [(ngModel)]="region" formControlName="region" >
+                    <ion-option [value]="item.id" *ngFor="let item of region_list">{{item.region}}</ion-option>
+                </ion-select>
+              </ion-item>
+
+              <br>
+
+              <ion-item>
+                  <ion-label>District</ion-label>
+                  <ion-select formControlName="district" [(ngModel)]="district">
+                  <ion-option [value]="item.id"  *ngFor="let item of districts_list">{{item.district}}</ion-option>
+                  </ion-select>
+                </ion-item>
+            <br>
+
+          
+            <ion-item>
+              <ion-label>Mode of Business</ion-label>
+              <ion-select formControlName="mode_biz" [(ngModel)]="mode_biz">
+                <ion-option value="hawker">Stationed</ion-option>
+                <ion-option value="mobile">Mobile</ion-option>
+              </ion-select>
+            </ion-item>
+
+                <br>
+
+                <ion-item>
+                    <ion-label>ID Type</ion-label>
+                    <ion-select formControlName="id_type" [(ngModel)]="id_type">
+                    <ion-option [value]="item.id"  *ngFor="let item of id_list">{{item.type}}</ion-option>
+
+                    </ion-select>
+                  </ion-item>
+
+              <ion-item>
+                <ion-label floating>ID Number</ion-label>
+                <ion-input type="text" formControlName="id_number" [(ngModel)]="id_number"  ></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label floating>TIN</ion-label>
+                <ion-input type="text" formControlName="tin" [(ngModel)]="tin" readonly=""  ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label floating>Primary Item Sale</ion-label>
+                <ion-input type="text" formControlName="primary_sale" [(ngModel)]="primary_sale"  ></ion-input>
+              </ion-item>
+              <p>
+             <button icon-left color="secondary" ion-button full outline (click)="takePhoto()" large>
+               <ion-icon  name="camera"></ion-icon>  Take Photo
+             </button>
+              </p>
+            
+            </ion-list>
+
+
+
+        <div align="center" *ngFor="let photo of photos; let id = index" >
+            <img style="width:50%" [src]="photo" *ngIf="photo" />
+         </div>
+  
+            <div align="center">
+                <button icon-left ion-button full outline color="primary" (click)="register()" large [disabled]="!regis_form.valid" >
+                    <ion-icon name="contact"></ion-icon>
+                  Register Customer
+                </button>
+              </div>
+            </form>
+    
+</ion-content>
